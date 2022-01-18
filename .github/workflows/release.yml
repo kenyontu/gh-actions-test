@@ -1,12 +1,12 @@
-name: Test
+name: Test and Release
 
 on:
-  pull_request:
+  pull:
     branches:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,9 @@ jobs:
           node-version: 16
           cache: 'npm'
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
 
-  cypress-run:
+  test-cypress:
     runs-on: ubuntu-20.04
 
     steps:
@@ -31,3 +30,16 @@ jobs:
           wait-on: 'http://localhost:3000'
           browser: chrome
           headless: true
+  publish:
+    runs-on: ubuntu-latest
+    needs: [test, test-cypress]
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run build --if-present
+
+      - name: deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
