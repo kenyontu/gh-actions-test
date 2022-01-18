@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+.counter {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttonContainer > button {
+  padding: 0.5rem 1rem;
+}
