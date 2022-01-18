@@ -7,7 +7,6 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1>Counter</h1>
       <p data-testid="counter" className={styles.counter}>
         {counter}
       </p>
