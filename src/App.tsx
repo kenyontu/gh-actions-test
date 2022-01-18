@@ -12,7 +12,7 @@ function App() {
         {counter}
       </p>
       <div className={styles.buttonContainer}>
-        <button onClick={() => setCounter((counter) => counter + 2)}>
+        <button onClick={() => setCounter((counter) => counter + 1)}>
           Increment
         </button>
         <button onClick={() => setCounter(0)}>Reset</button>
