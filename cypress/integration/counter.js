@@ -16,3 +16,12 @@ describe('Counter', () => {
     cy.get('[data-testid="counter"]').should('contain', '1')
   })
 })
+
+describe('Routing', () => {
+  it('can change pages', () => {
+    cy.visit('http://localhost:3000/gh-actions-test')
+    cy.contains('About').click()
+    cy.contains('Home').click()
+    cy.contains('About').should('exist')
+  })
+})
