@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './App.module.css'
 
@@ -16,6 +17,7 @@ function App() {
         </button>
         <button onClick={() => setCounter(0)}>Reset</button>
       </div>
+      <Link to="/about">About</Link>
     </div>
   )
 }
