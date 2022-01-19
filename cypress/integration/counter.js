@@ -1,6 +1,6 @@
 describe('Counter', () => {
   it('can increment the counter', () => {
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3000/gh-actions-test')
     cy.get('[data-testid="counter"]').should('contain', '0')
 
     cy.contains('Increment').click()
