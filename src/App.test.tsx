@@ -1,8 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
+
+import { renderWithProviders } from './test/utils'
 import App from './App'
 
 test('Should increment and reset the counter correctly', () => {
-  render(<App />)
+  renderWithProviders(<App />)
 
   const counter = screen.getByTestId('counter')
   const incrementBtn = screen.getByText(/increment/i)
